@@ -1,0 +1,42 @@
+@host = localhost
+@port = 8080
+@pathproject = academico-web-api
+
+### Lista todos os endereços
+GET http://{{host}}:{{port}}/{{pathproject}}/enderecos
+
+### Busca um endereço específico por ID
+GET http://{{host}}:{{port}}/{{pathproject}}/enderecos/42
+
+### Criar um endereço 
+POST http://{{host}}:{{port}}/{{pathproject}}/enderecos
+Content-Type: application/json
+
+{
+    "CEP": 49400000,
+    "bairro": "Centro",
+    "cidade": "Lagarto",
+    "estado": "Sergipe",
+    "rua": "Av. Laudelino Freire"
+}
+
+### Atualizar todos os atributos de um endereço
+PUT http://{{host}}:{{port}}/{{pathproject}}/enderecos/41
+content-type: application/json
+
+{
+    "CEP": 49010170,
+    "bairro": "Centro",
+    "cidade": "Aracaju",
+    "estado": "Sergipe",
+    "rua": "Rua Itabaiana"
+}
+
+### Deletar um endereço
+DELETE http://{{host}}:{{port}}/{{pathproject}}/enderecos/42
+
+### Ativar/Desativar um endereço - Não CRUD
+PUT http://{{host}}:{{port}}/{{pathproject}}/enderecos/41/status
+Content-Type: text/plain
+
+DESATIVO
